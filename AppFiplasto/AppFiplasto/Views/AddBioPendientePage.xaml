@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppFiplasto.Views.AddBioPendientePage"
+              BackgroundColor="{StaticResource BackgroundColor}"
+             BindingContext="{Binding Main,Source={StaticResource Locator}}"
+             Title="Agregar registro">
+    <ContentPage.Content>
+        <ScrollView
+            BindingContext="{Binding AddRegistroBiomasa}">
+            <StackLayout
+                Padding="10">
+                <Label
+                   FontAttributes="Bold"
+                   FontSize="Medium"
+                    TextColor="{StaticResource FontColor}"
+                   Text="{Binding BiomasaPeso.Ticket,StringFormat='Nº: {0}'}"/>
+                <Label 
+                    FontSize="Small"
+                    TextColor="{StaticResource FontColor}"
+                    Text="{Binding BiomasaPeso.FechaPesada}"/>
+                <Label 
+                    FontSize="Small"
+                    TextColor="{StaticResource FontColor}"
+                    Text="{Binding BiomasaPeso.Tipmad,StringFormat='Tipo: {0:N}'}"/>
+                <Label 
+                    FontSize="Small"
+                    TextColor="{StaticResource FontColor}"
+                    Text="{Binding BiomasaPeso.Neto,StringFormat='Peso: {0:C2} TN'}"/>
+                <StackLayout
+                    Padding="5"
+                    Orientation="Horizontal">
+                        <Picker 
+                            FontSize="Medium"
+                            Title="Turno"
+                            ItemsSource="{Binding TurnosList}"
+                            ItemDisplayBinding="{Binding Turnos}"
+                            SelectedItem="{Binding SelectedTurno}"/>
+                        <Picker 
+                            FontSize="Medium"
+                            Title="Grupo"
+                            ItemsSource="{Binding GruposList}"
+                            ItemDisplayBinding="{Binding Grupos}"
+                            SelectedItem="{Binding SelectedGrupo}"/>
+                </StackLayout>
+                <Label
+                    FontAttributes="Italic"
+                    FontSize="Small"
+                    TextColor="{StaticResource FontColor}"
+                    Text="Fecha de picado:"/>
+                <DatePicker 
+                    Date="{Binding FechaPicado}"
+                    Format="yyyy/MM/dd"
+                    MinimumDate="{Binding BiomasaPeso.FechaPesada}"
+                    MaximumDate="2050/12/31"/>
+                <ActivityIndicator 
+                    IsRunning="{Binding IsRunning}">
+                </ActivityIndicator>
+                <Button
+                    Style="{StaticResource GeneralButton}"
+                    Command="{Binding SaveCommand}"
+                    IsEnabled="{Binding IsEnabled}"
+                    Text="Guardar"  />
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

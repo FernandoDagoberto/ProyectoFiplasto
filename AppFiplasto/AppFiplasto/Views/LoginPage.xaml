@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppFiplasto.Views.LoginPage"
+              BackgroundColor="{StaticResource BackgroundColor}"
+             BindingContext="{Binding Main,Source={StaticResource Locator}}">
+    <ContentPage.Content>
+        <ScrollView BindingContext="{Binding Login}">
+            <Grid>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Image 
+                        Grid.Row="0" 
+                        Source="logo_nuevo.png" 
+                        WidthRequest="100" 
+                        HeightRequest="100" 
+                        Margin="0,50,0,30"/>
+                    <StackLayout Grid.Row="1" Padding="30,20">
+                        <Entry 
+                            Placeholder="Ingrese Usuario"
+                            PlaceholderColor="Black"
+                            Text="{Binding Usuario}"/>
+                        <Entry
+                            IsPassword="True"
+                            Placeholder="Contraseña"
+                            PlaceholderColor="Black"
+                            Text="{Binding Password}"/>
+                        <StackLayout
+                            HorizontalOptions="Center"
+                            Orientation="Horizontal">
+                            <Label
+                                Text="Recordarme en este dispositivo"
+                                VerticalOptions="Center">
+                            </Label>
+                            <Switch
+                                IsToggled="{Binding IsRemember}">
+                            </Switch>
+                        </StackLayout>
+                        <ActivityIndicator
+                            IsRunning="{Binding IsRunning}"
+                            VerticalOptions="CenterAndExpand">
+                        </ActivityIndicator>
+                        <Button
+                            Style="{StaticResource GeneralButton}"
+                            Command="{Binding LoginCommand}"
+                            IsEnabled="{Binding IsEnabled}"
+                            Text="Iniciar sesión"  />
+                    </StackLayout>
+                </Grid>
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

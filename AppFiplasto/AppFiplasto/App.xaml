@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:infra="clr-namespace:AppFiplasto.Infrastructure"
+             x:Class="AppFiplasto.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <!--Locator-->
+            <infra:InstanceLocator x:Key="Locator"/>
+            <!--Colores Generales-->
+            <Color x:Key="MainColor">#B42C55</Color>
+            <Color x:Key="FontColor">#2B3A42</Color>
+            <Color x:Key="AccentColor1">#435964</Color>
+            <Color x:Key="AccentColor2">#EE7560</Color>
+            <Color x:Key="BackgroundColor">#EFEFEF</Color>
+            <!--Menu Colores -->
+            <Color x:Key="MenuColor">#BDD4DE</Color>
+            <Color x:Key="MenuFontColor">#2B3A42</Color>
+
+            <Style x:Key="GeneralButton"
+                   TargetType="Button">
+                <Setter Property="BackgroundColor"
+                       Value="{StaticResource MainColor}"></Setter>
+                <Setter Property="BorderRadius"
+                       Value="20"></Setter>
+                <Setter Property="HeightRequest"
+                       Value="40"></Setter>
+                <Setter Property="TextColor"
+                       Value="White"></Setter>
+            </Style>
+            
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

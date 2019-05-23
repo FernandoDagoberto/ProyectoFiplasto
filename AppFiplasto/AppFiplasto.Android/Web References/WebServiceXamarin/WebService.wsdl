@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="ListaStockMadera">
+        <s:complexType />
+      </s:element>
+      <s:element name="ListaStockMaderaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListaStockMaderaResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RemitosBiomasa">
+        <s:complexType />
+      </s:element>
+      <s:element name="RemitosBiomasaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RemitosBiomasaResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GrabarTicketBio">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ticket" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="turno" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="grupo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="fechapicado" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GrabarTicketBioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GrabarTicketBioResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Permisos">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="usuario" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PermisosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PermisosResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RQPendientes">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="esquemaAutorizacion" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RQPendientesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RQPendientesResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AutorizaRQ">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="esquemaAutorizacion" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="modfor" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="codfor" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="nrofor" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AutorizaRQResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AutorizaRQResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InformeProduccion">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UltimoDiaMesAnterior" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FechaHasta" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InformeProduccionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InformeProduccionResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="ListaStockMaderaSoapIn">
+    <wsdl:part name="parameters" element="tns:ListaStockMadera" />
+  </wsdl:message>
+  <wsdl:message name="ListaStockMaderaSoapOut">
+    <wsdl:part name="parameters" element="tns:ListaStockMaderaResponse" />
+  </wsdl:message>
+  <wsdl:message name="RemitosBiomasaSoapIn">
+    <wsdl:part name="parameters" element="tns:RemitosBiomasa" />
+  </wsdl:message>
+  <wsdl:message name="RemitosBiomasaSoapOut">
+    <wsdl:part name="parameters" element="tns:RemitosBiomasaResponse" />
+  </wsdl:message>
+  <wsdl:message name="GrabarTicketBioSoapIn">
+    <wsdl:part name="parameters" element="tns:GrabarTicketBio" />
+  </wsdl:message>
+  <wsdl:message name="GrabarTicketBioSoapOut">
+    <wsdl:part name="parameters" element="tns:GrabarTicketBioResponse" />
+  </wsdl:message>
+  <wsdl:message name="PermisosSoapIn">
+    <wsdl:part name="parameters" element="tns:Permisos" />
+  </wsdl:message>
+  <wsdl:message name="PermisosSoapOut">
+    <wsdl:part name="parameters" element="tns:PermisosResponse" />
+  </wsdl:message>
+  <wsdl:message name="RQPendientesSoapIn">
+    <wsdl:part name="parameters" element="tns:RQPendientes" />
+  </wsdl:message>
+  <wsdl:message name="RQPendientesSoapOut">
+    <wsdl:part name="parameters" element="tns:RQPendientesResponse" />
+  </wsdl:message>
+  <wsdl:message name="AutorizaRQSoapIn">
+    <wsdl:part name="parameters" element="tns:AutorizaRQ" />
+  </wsdl:message>
+  <wsdl:message name="AutorizaRQSoapOut">
+    <wsdl:part name="parameters" element="tns:AutorizaRQResponse" />
+  </wsdl:message>
+  <wsdl:message name="InformeProduccionSoapIn">
+    <wsdl:part name="parameters" element="tns:InformeProduccion" />
+  </wsdl:message>
+  <wsdl:message name="InformeProduccionSoapOut">
+    <wsdl:part name="parameters" element="tns:InformeProduccionResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WebServiceSoap">
+    <wsdl:operation name="ListaStockMadera">
+      <wsdl:input message="tns:ListaStockMaderaSoapIn" />
+      <wsdl:output message="tns:ListaStockMaderaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RemitosBiomasa">
+      <wsdl:input message="tns:RemitosBiomasaSoapIn" />
+      <wsdl:output message="tns:RemitosBiomasaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GrabarTicketBio">
+      <wsdl:input message="tns:GrabarTicketBioSoapIn" />
+      <wsdl:output message="tns:GrabarTicketBioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Permisos">
+      <wsdl:input message="tns:PermisosSoapIn" />
+      <wsdl:output message="tns:PermisosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RQPendientes">
+      <wsdl:input message="tns:RQPendientesSoapIn" />
+      <wsdl:output message="tns:RQPendientesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AutorizaRQ">
+      <wsdl:input message="tns:AutorizaRQSoapIn" />
+      <wsdl:output message="tns:AutorizaRQSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InformeProduccion">
+      <wsdl:input message="tns:InformeProduccionSoapIn" />
+      <wsdl:output message="tns:InformeProduccionSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WebServiceSoap" type="tns:WebServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ListaStockMadera">
+      <soap:operation soapAction="http://tempuri.org/ListaStockMadera" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemitosBiomasa">
+      <soap:operation soapAction="http://tempuri.org/RemitosBiomasa" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GrabarTicketBio">
+      <soap:operation soapAction="http://tempuri.org/GrabarTicketBio" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Permisos">
+      <soap:operation soapAction="http://tempuri.org/Permisos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RQPendientes">
+      <soap:operation soapAction="http://tempuri.org/RQPendientes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AutorizaRQ">
+      <soap:operation soapAction="http://tempuri.org/AutorizaRQ" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InformeProduccion">
+      <soap:operation soapAction="http://tempuri.org/InformeProduccion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WebServiceSoap12" type="tns:WebServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ListaStockMadera">
+      <soap12:operation soapAction="http://tempuri.org/ListaStockMadera" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemitosBiomasa">
+      <soap12:operation soapAction="http://tempuri.org/RemitosBiomasa" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GrabarTicketBio">
+      <soap12:operation soapAction="http://tempuri.org/GrabarTicketBio" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Permisos">
+      <soap12:operation soapAction="http://tempuri.org/Permisos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RQPendientes">
+      <soap12:operation soapAction="http://tempuri.org/RQPendientes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AutorizaRQ">
+      <soap12:operation soapAction="http://tempuri.org/AutorizaRQ" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InformeProduccion">
+      <soap12:operation soapAction="http://tempuri.org/InformeProduccion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WebService">
+    <wsdl:port name="WebServiceSoap" binding="tns:WebServiceSoap">
+      <soap:address location="http://www.sistemasfiplasto.com.ar/xamarin/WebService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WebServiceSoap12" binding="tns:WebServiceSoap12">
+      <soap12:address location="http://www.sistemasfiplasto.com.ar/xamarin/WebService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

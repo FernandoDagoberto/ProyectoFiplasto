@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppFiplasto.Views.ProduccionPage"
+             BackgroundColor="{StaticResource BackgroundColor}"
+             BindingContext="{Binding Main,Source={StaticResource Locator}}"
+             Title="Producción">
+    <ContentPage.Content>
+            <StackLayout
+            BindingContext="{Binding ProduccionVM}"
+            Padding="8">
+            <StackLayout 
+                Orientation="Horizontal">
+                <Label 
+                    HorizontalOptions="StartAndExpand"
+                    TextColor="{StaticResource FontColor}"
+                    Text="Fecha: "/>
+                <DatePicker 
+                    Date="{Binding FechaDesde}"
+                    Format="dd/MM/yyyy"
+                    HorizontalOptions="StartAndExpand"
+                    MinimumDate="2019/04/01"
+                    MaximumDate="2050/12/31"
+                    TextColor="{StaticResource FontColor}"/>
+            </StackLayout>
+
+           <Label 
+               TextColor="{StaticResource FontColor}"
+               Text="Producción del día"/>
+            <ListView
+                BackgroundColor="DarkSeaGreen"
+                IsRefreshing="{Binding IsRefreshing}"
+                HasUnevenRows="True"
+                IsPullToRefreshEnabled="True"
+                RefreshCommand="{Binding RefreshCommand}"
+                ItemsSource="{Binding ProdDiariaOC}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding SelectStockMadCommand}"/>
+                                </Grid.GestureRecognizers>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <StackLayout 
+                                    Orientation="Horizontal"
+                                   Grid.Column="1">
+                                    <Label 
+                                        FontSize="Medium"
+                                        HorizontalOptions="StartAndExpand"
+                                        Text="{Binding Linea}"/>
+                                    <Label 
+                                        FontSize="Medium"
+                                        HorizontalOptions="StartAndExpand"
+                                        Text="{Binding Producto}"/>
+                                </StackLayout>
+                                <StackLayout 
+                                    Grid.Column="2">
+                                    <Label 
+                                       FontSize="Medium"
+                                       HorizontalOptions="StartAndExpand"
+                                       Text="{Binding Aberturas,StringFormat=' {0} mts2'}"/>
+                                </StackLayout>
+
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <Label 
+                TextColor="{StaticResource FontColor}"
+                Text="Producción mensual"/>
+            <ListView
+                
+                BackgroundColor="DarkSeaGreen"
+                HasUnevenRows="True"
+                IsPullToRefreshEnabled="True"
+                RefreshCommand="{Binding RefreshCommand}"
+                ItemsSource="{Binding ProdMensualOC}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding SelectStockMadCommand}"/>
+                                </Grid.GestureRecognizers>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <StackLayout 
+                                    Grid.Column="1"
+                                    Orientation="Horizontal">
+                                    <Label 
+                                        FontSize="Medium"
+                                        HorizontalOptions="StartAndExpand"
+                                        Text="{Binding Linea}"/>
+                                    <Label 
+                                        FontSize="Medium"
+                                        HorizontalOptions="StartAndExpand"
+                                        Text="{Binding Producto}"/>
+                                </StackLayout>
+                                <StackLayout 
+                                    Grid.Column="2">
+                                    <Label 
+                                       FontSize="Medium"
+                                       HorizontalOptions="StartAndExpand"
+                                       Text="{Binding Aberturas,StringFormat=' {0} mts2'}"/>
+                                </StackLayout>
+
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+        </StackLayout>
+        
+    </ContentPage.Content>
+</ContentPage>

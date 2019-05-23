@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppFiplasto.Views.AutorizacionConfirmacionPage"  BackgroundColor="{StaticResource BackgroundColor}"
+             BindingContext="{Binding Main,Source={StaticResource Locator}}"
+             Title="Detalles">
+    <ContentPage.Content>
+        <ScrollView
+            BindingContext="{Binding ConfirmarRQAutorizacion}">
+            <StackLayout
+                Padding="10">
+                <StackLayout 
+                    Orientation="Horizontal">
+                    <Label
+                        FontSize="Large"
+                        TextColor="{StaticResource FontColor}"
+                        Text="{Binding RQHPendientes.CORMVH_CODFOR}"/>
+                    <Label 
+                        FontSize="Large"
+                        TextColor="{StaticResource FontColor}"
+                        Text="{Binding RQHPendientes.CORMVH_NROFOR}"/>
+                </StackLayout>
+
+                <Label 
+                    FontSize="Medium"
+                    TextColor="{StaticResource FontColor}"
+                    Text="Fecha:"/>
+                <Label 
+                    FontSize="Medium"
+                    TextColor="{StaticResource FontColor}"
+                    Text="{Binding RQHPendientes.CORMVH_FCHMOV,StringFormat=' {0:dd/MM/yy}'}"/>
+                <Label 
+                    FontSize="Medium"
+                    TextColor="{StaticResource FontColor}"
+                    Text="Observación:"/>
+                <Label 
+                    FontSize="Medium"
+                    TextColor="{StaticResource FontColor}"
+                    Text="{Binding RQHPendientes.CORMVH_TEXTOS}"/>
+                <Label 
+                    FontSize="Medium"
+                    TextColor="{StaticResource FontColor}"
+                    Text="Precio:"/>
+                <Label 
+                    FontSize="Medium"
+                    TextColor="{StaticResource FontColor}"
+                    Text="{Binding RQHPendientes.Precio}"/>
+
+                <ActivityIndicator 
+                    IsRunning="{Binding IsRunning}">
+                </ActivityIndicator>
+                <StackLayout Orientation="Horizontal">
+                    <Button
+                        HorizontalOptions="FillAndExpand"
+                        Command="{Binding NoAutorizaCommand}"
+                        IsEnabled="{Binding IsEnabled}"
+                        Style="{StaticResource GeneralButton}"
+                        Text="No Autoriza"  />
+                    <Button
+                        BackgroundColor="Green"
+                        Command="{Binding AutorizaCommand}"
+                        HorizontalOptions="FillAndExpand"
+                        IsEnabled="{Binding IsEnabled}"
+                        Style="{StaticResource GeneralButton}"
+                        Text="Autoriza"  />
+                </StackLayout>
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

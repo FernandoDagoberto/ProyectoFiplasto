@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppFiplasto.Views.BioPendientePage" 
+             BackgroundColor="{StaticResource BackgroundColor}"
+             BindingContext="{Binding Main,Source={StaticResource Locator}}"
+             Title="Pendientes">
+    <ContentPage.Content>
+        <StackLayout
+            BindingContext="{Binding DescarteBiomasaVM}"
+            Padding="8">
+            <ListView
+                IsRefreshing="{Binding IsRefreshing}"
+                HasUnevenRows="True"
+                IsPullToRefreshEnabled="True"
+                RefreshCommand="{Binding RefreshCommand}"
+                ItemsSource="{Binding PesosBiomasaOC}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding SelectBiomasaPesoCommand}"/>
+                                </Grid.GestureRecognizers>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+                                <StackLayout 
+                                    Grid.Column="0">
+                                    <Label 
+                                        FontSize="Medium"
+                                        TextColor="{StaticResource FontColor}"
+                                        Text="{Binding Ticket}"/>
+                                </StackLayout>
+                                <StackLayout 
+                                    VerticalOptions="Center"
+                                    Grid.Column="1">
+                                    <Label 
+                                        VerticalTextAlignment="Center"
+                                        FontSize="Small"
+                                        TextColor="{StaticResource FontColor}"
+                                        Text="{Binding FechaPesada,StringFormat='{0:dd/MM/yy HH:mm}'}"
+                                        />
+                                    <Label 
+                                        VerticalTextAlignment="Center"
+                                        Text="{Binding Neto,StringFormat='Peso: {0:N2} TN'}"
+                                        TextColor="Navy"/>
+                                </StackLayout>
+                                <StackLayout
+                                    Grid.Column="2"
+                                    HeightRequest="25"
+                                    WidthRequest="25"
+                                    VerticalOptions="CenterAndExpand"
+                                    HorizontalOptions="EndAndExpand">
+                                    <Image
+                                        HorizontalOptions="CenterAndExpand"
+                                        Source="ic_chev"/>
+                                </StackLayout>
+                            </Grid>
+                        </ViewCell>
+                      </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

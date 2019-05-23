@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppFiplasto.Views.BioInformePage"
+             BindingContext="{Binding Main,Source={StaticResource Locator}}"
+             BackgroundColor="{StaticResource BackgroundColor}"
+             Title="Informe">
+    <ContentPage.Content>
+        <StackLayout
+            BindingContext="{Binding InformeBiomasaVM}"
+            Padding="8">
+            <StackLayout 
+                BackgroundColor="{StaticResource MenuColor}"
+                Orientation="Horizontal">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                </Grid>
+                <StackLayout Grid.Column="0">
+                    <Label 
+                          TextColor="{StaticResource FontColor}"
+                          Text="Desde:"/>
+                    <DatePicker 
+                         Date="{Binding FechaDesde}"
+                         Format="dd/MM/yyyy"
+                         MinimumDate="2019/04/01"
+                         MaximumDate="2050/12/31"/>
+                </StackLayout>
+                <StackLayout Grid.Column="1" HorizontalOptions="EndAndExpand">
+                    <Label 
+                        TextColor="{StaticResource FontColor}"
+                        Text="Hasta:"/>
+                    <DatePicker 
+                        Date="{Binding FechaHasta}"
+                        Format="dd/MM/yyyy"
+                        MinimumDate="2019/04/01"
+                        MaximumDate="2050/12/31"/>
+                </StackLayout>
+            </StackLayout>
+
+            <Button
+                Command="{Binding FindCommand}"
+                IsEnabled="{Binding IsEnabled}"
+                Style="{StaticResource GeneralButton}"
+                Text="Buscar"/>
+
+            <ListView
+                IsRefreshing="{Binding IsRefreshing}"
+                HasUnevenRows="True"
+                IsPullToRefreshEnabled="True"
+                RefreshCommand="{Binding RefreshCommand}"
+                ItemsSource="{Binding InformeBiomasaOC}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <!--
+                                <Grid.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding SelectBiomasaPesoCommand}"/>
+                                </Grid.GestureRecognizers>
+                                -->
+                                <StackLayout>
+                                    <Label 
+                                        FontSize="Medium"
+                                        TextColor="{StaticResource FontColor}"
+                                        Text="{Binding Tipmad}"/>
+                                <Label
+                                        FontSize="Medium"
+                                    HorizontalOptions="EndAndExpand"
+                                        Text="{Binding Neto,StringFormat='Total: {0:N2} TN'}"
+                                        TextColor="{StaticResource FontColor}"/>
+                                </StackLayout>
+                               </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
