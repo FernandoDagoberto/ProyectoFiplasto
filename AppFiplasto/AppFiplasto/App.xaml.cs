@@ -23,12 +23,13 @@ namespace AppFiplasto
             {
                 var mainViewModel = MainViewModel.GetInstance();
                 mainViewModel.UsuarioLogueado = Settings.Usuario;
-               // mainViewModel.ProduccionVM = new ProduccionViewModel();
+                mainViewModel.ProduccionVM = new ProduccionViewModel();
                 mainViewModel.DescarteBiomasaVM = new BioPendienteViewModel();
                 mainViewModel.CargadosBiomasaVM = new BioCargadosViewModel();
-              mainViewModel.InformeBiomasaVM = new BioInformeViewModel();
-             // mainViewModel.AutorizacionesVM = new AutorizacionViewModel();
+                mainViewModel.InformeBiomasaVM = new BioInformeViewModel();
+                // mainViewModel.AutorizacionesVM = new AutorizacionViewModel();
                 mainViewModel.StockVM = new StockMadViewModel();
+                mainViewModel.BioStockMadVM = new BioStockMadViewModel();
                 this.MainPage = new MasterPage();
                 return;
             }

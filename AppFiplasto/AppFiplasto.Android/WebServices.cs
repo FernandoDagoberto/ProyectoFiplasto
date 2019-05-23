@@ -61,10 +61,10 @@ namespace AppFiplasto.Droid
         }
 
 
-        public DataSet StockMadera()
+        public DataSet StockMadera(string tipoMad)
         {
             var servicio = new WebServiceXamarin.WebService();
-            DataSet retorno = servicio.ListaStockMadera();
+            DataSet retorno = servicio.ListaStockMadera(tipoMad);
             return retorno;
         }
 

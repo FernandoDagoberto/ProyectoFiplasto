@@ -41,6 +41,7 @@
                         </StackLayout>
                         <ActivityIndicator
                             IsRunning="{Binding IsRunning}"
+                            IsVisible="True"
                             VerticalOptions="CenterAndExpand">
                         </ActivityIndicator>
                         <Button

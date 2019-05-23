@@ -105,22 +105,24 @@ namespace AppFiplasto.Droid.WebServiceXamarin {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/ListaStockMadera", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public System.Data.DataSet ListaStockMadera() {
-            object[] results = this.Invoke("ListaStockMadera", new object[0]);
+        public System.Data.DataSet ListaStockMadera(string Tipo) {
+            object[] results = this.Invoke("ListaStockMadera", new object[] {
+                        Tipo});
             return ((System.Data.DataSet)(results[0]));
         }
         
         /// <remarks/>
-        public void ListaStockMaderaAsync() {
-            this.ListaStockMaderaAsync(null);
+        public void ListaStockMaderaAsync(string Tipo) {
+            this.ListaStockMaderaAsync(Tipo, null);
         }
         
         /// <remarks/>
-        public void ListaStockMaderaAsync(object userState) {
+        public void ListaStockMaderaAsync(string Tipo, object userState) {
             if ((this.ListaStockMaderaOperationCompleted == null)) {
                 this.ListaStockMaderaOperationCompleted = new System.Threading.SendOrPostCallback(this.OnListaStockMaderaOperationCompleted);
             }
-            this.InvokeAsync("ListaStockMadera", new object[0], this.ListaStockMaderaOperationCompleted, userState);
+            this.InvokeAsync("ListaStockMadera", new object[] {
+                        Tipo}, this.ListaStockMaderaOperationCompleted, userState);
         }
         
         private void OnListaStockMaderaOperationCompleted(object arg) {

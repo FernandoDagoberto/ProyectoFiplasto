@@ -12,6 +12,41 @@ namespace AppFiplasto.Services
     public class ApiService
     {
 
+        public async Task<Response> Login(string Usuario,string Password)
+        {
+            try
+            {
+                var servicio = DependencyService.Get<IValido>();
+                bool resultado =  servicio.LoginWindows("Fiplasto", Usuario, Password);
+                
+                               
+                if (!resultado)
+                {
+                    return new Response
+                    {
+                        IsSuccess = false,
+                        Message = "Usuario o contraseña incorrecto",
+                    };
+                }
+                             
+                return new Response
+                {
+                    IsSuccess = true,
+                    Message = "Login OK",
+                 };
+            }
+            catch (Exception ex)
+            {
+                return new Response
+                {
+                    IsSuccess = false,
+                    Message = ex.Message
+                };
+
+            }
+        }
+
+
         public async Task<Response> BiomasaJSON<T>()
         {
             try
@@ -55,13 +90,13 @@ namespace AppFiplasto.Services
             }
         }
 
-        public async Task<Response> StockMaderaJSON<T>()
+        public async Task<Response> StockMaderaJSON<T>(string tipoMad)
         {
             try
             {
                 var servicio = DependencyService.Get<IValido>();
 
-                var stock_madera = servicio.StockMadera();
+                var stock_madera = servicio.StockMadera(tipoMad);
 
 
                 string JSONString = string.Empty;

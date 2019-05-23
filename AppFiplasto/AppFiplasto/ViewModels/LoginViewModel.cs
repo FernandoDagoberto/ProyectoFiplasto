@@ -19,7 +19,6 @@
       
         #endregion
 
-
         #region Properties
         public string Usuario { get; set; }
 
@@ -83,14 +82,13 @@
 
             if (IsRunning)
             {
-                var servicio = DependencyService.Get<IValido>();
-                bool resultado = servicio.LoginWindows("Fiplasto", Usuario, Password);
+                var response = await apiService.Login(this.Usuario, this.Password);
 
-                if (!resultado)
+                if (!response.IsSuccess)
                 {
                     await Application.Current.MainPage.DisplayAlert(
                         "Error",
-                        "Usuario o contraseña incorrecto",
+                        response.Message,
                         "Aceptar"
                         );
                     this.IsRunning = false;
@@ -104,6 +102,7 @@
             mainViewModel.CargadosBiomasaVM = new BioCargadosViewModel();
             mainViewModel.InformeBiomasaVM = new BioInformeViewModel();
             mainViewModel.StockVM = new StockMadViewModel();
+            mainViewModel.BioStockMadVM = new BioStockMadViewModel();
             mainViewModel.ProduccionVM = new ProduccionViewModel();
             mainViewModel.UsuarioLogueado = this.Usuario;
             this.IsRunning = false;

@@ -1,0 +1,9 @@
+F:\Projects\ProyectoFiplasto\WebService\bin\WebService.dll.config
+F:\Projects\ProyectoFiplasto\WebService\bin\WebService.dll
+F:\Projects\ProyectoFiplasto\WebService\bin\WebService.pdb
+F:\Projects\ProyectoFiplasto\WebService\obj\Release\WebService.csproj.CoreCompileInputs.cache
+F:\Projects\ProyectoFiplasto\WebService\obj\Release\WebService.dll
+F:\Projects\ProyectoFiplasto\WebService\obj\Release\WebService.pdb
+F:\Projects\ProyectoFiplasto\WebService\obj\Release\WebService.csprojAssemblyReference.cache
+F:\Projects\ProyectoFiplasto\WebService\bin\MySql.Data.dll
+F:\Projects\ProyectoFiplasto\WebService\obj\Release\WebService.csproj.CopyComplete

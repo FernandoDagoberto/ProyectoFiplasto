@@ -13,7 +13,7 @@ namespace AppFiplasto
 
         DataSet Biomasa();
 
-        DataSet StockMadera();
+        DataSet StockMadera(string tipoMad);
 
         bool GuardarRegistro(string ticket, string turno, string grupo,string fechapicado);
 

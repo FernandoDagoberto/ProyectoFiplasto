@@ -18,20 +18,30 @@ namespace WebService
     // [System.Web.Script.Services.ScriptService]
     public class WebService : System.Web.Services.WebService
     {
+        
 
         [WebMethod]
-        public DataSet ListaStockMadera()
+        public DataSet ListaStockMadera(string Tipo)
         {
             SqlConnection conn = new SqlConnection(new DBConnection().ConnectionString);
             Result result = new Result();
+             string sql;
 
             try
             {
+                if (Tipo == "M")
+                {
 
-                string sql = "SELECT stpila_pila as Pila, pila_tipo as Tipo," +
-                    "CONVERT(FLOAT, stpila_stock) / 1000 as Stock " +
-                    "FROM stpila inner join pila on pila_id = stpila_pila" +
-                    " WHERE stpila_stock>0 ";
+                     sql = "SELECT stpila_pila as Pila, pila_tipo as Tipo," +
+                        "CONVERT(FLOAT, stpila_stock) / 1000 as Stock " +
+                        "FROM stpila inner join pila on pila_id = stpila_pila " +
+                        "WHERE stpila_stock>0 ";
+                }
+                else
+                {
+                     sql = "SELECT Pila, Tipo,CONVERT(FLOAT, BioStock.stock) / 1000 as Stock FROM BIOSTOCK " +
+                                 "inner join biopila on biopila.ID = pila where BioStock.stock> 0 ";
+                }
 
 
                 SqlDataAdapter da = new SqlDataAdapter(sql, conn);

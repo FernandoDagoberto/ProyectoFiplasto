@@ -28,7 +28,7 @@ namespace AppFiplasto.ViewModels
         public BioPendienteViewModel DescarteBiomasaVM { get; set; }
         public BioCargadosViewModel CargadosBiomasaVM { get; set; }
         public BioInformeViewModel InformeBiomasaVM { get; set; }
-
+        public BioStockMadViewModel BioStockMadVM{ get; set; }
 
 
         public ObservableCollection<MenuItemViewModel> Menus { get; set; }
@@ -77,7 +77,7 @@ namespace AppFiplasto.ViewModels
                 new Models.Menu
                 {
                     Icon="ic_info",
-                    PageName="StockMadPage",
+                    PageName="StockTabPage",
                     Title="Stock Madera"
                 },
                  new Models.Menu

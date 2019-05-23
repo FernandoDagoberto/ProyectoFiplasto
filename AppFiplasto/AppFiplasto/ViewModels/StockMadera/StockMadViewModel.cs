@@ -54,7 +54,7 @@ namespace AppFiplasto.ViewModels
 
             this.IsRefreshing = true;
 
-            var response = await apiService.StockMaderaJSON<StockMad>();
+            var response = await apiService.StockMaderaJSON<StockMad>("M");
 
             this.IsRefreshing = false;
 

@@ -26,8 +26,8 @@ namespace AppFiplasto.Services
                 case "BioTabPage":
                     await App.Navigator.PushAsync(new BioTabPage());
                     break;
-                case "StockMadPage":
-                    await App.Navigator.PushAsync(new StockMadPage());
+                case "StockTabPage":
+                    await App.Navigator.PushAsync(new StockTabPage());
                     break;
                 case "AutorizacionPage":
                     await App.Navigator.PushAsync(new AutorizacionPage());

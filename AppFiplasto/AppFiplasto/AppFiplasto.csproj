@@ -32,11 +32,17 @@
     <Compile Update="Views\BioPendientePage.xaml.cs">
       <DependentUpon>BioPendientePage.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Views\StockTabPage.xaml.cs">
+      <DependentUpon>StockTabPage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\BioTabPage.xaml.cs">
       <DependentUpon>BioTabPage.xaml</DependentUpon>
     </Compile>
     <Compile Update="Views\ProduccionPage.xaml.cs">
       <DependentUpon>ProduccionPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\BioStockMadPage.xaml.cs">
+      <DependentUpon>BioStockMadPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
 
