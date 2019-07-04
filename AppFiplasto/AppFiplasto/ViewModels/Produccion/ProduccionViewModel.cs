@@ -16,8 +16,8 @@ namespace AppFiplasto.ViewModels
     {
         #region Atributos
         private ApiService apiService;
-        private ObservableCollection<Produccion> prodMensualOC;
-        private ObservableCollection<Produccion> prodDiariaOC;
+        private ObservableCollection<ProduccionItemViewModel> prodMensualOC;
+        private ObservableCollection<ProduccionItemViewModel> prodDiariaOC;
         public List<Produccion> misRegistros;
         public bool isRefreshing;
         private DateTime fechaDesde;
@@ -25,13 +25,13 @@ namespace AppFiplasto.ViewModels
         #endregion
 
         #region Propiedades
-        public ObservableCollection<Produccion> ProdMensualOC
+        public ObservableCollection<ProduccionItemViewModel> ProdMensualOC
         {
             get { return this.prodMensualOC; }
             set { this.SetValue(ref this.prodMensualOC, value); }
         }
 
-        public ObservableCollection<Produccion> ProdDiariaOC
+        public ObservableCollection<ProduccionItemViewModel> ProdDiariaOC
         {
             get { return this.prodDiariaOC; }
             set { this.SetValue(ref this.prodDiariaOC, value); }
@@ -111,25 +111,25 @@ namespace AppFiplasto.ViewModels
         {
             if (Opcion == "M")
             {
-                this.ProdMensualOC = new ObservableCollection<Produccion>(
-                                  this.misRegistros.Select(r => new Produccion
+                this.ProdMensualOC = new ObservableCollection<ProduccionItemViewModel>(
+                                  this.misRegistros.GroupBy(l => l.Linea)
+                                  .Select(r => new ProduccionItemViewModel
                                   {
-                                      Linea = r.Linea,
-                                      Producto = r.Producto,
-                                      Aberturas = r.Aberturas,
+                                      Linea = r.Key,
+                                      Aberturas = r.Sum(s => s.Aberturas)
                                   })
-                                         .OrderBy(o => o.Linea)
-                                          .ToList());
+                                      .OrderBy(o => o.Linea)
+                                      .ToList());
             }
             else
             {
-                this.ProdDiariaOC = new ObservableCollection<Produccion>(
-                                 this.misRegistros.Select(r => new Produccion
-                                         {                                    
-                                             Linea = r.Linea,
-                                             Producto = r.Producto,
-                                             Aberturas = r.Aberturas,
-                                        })
+                this.ProdDiariaOC = new ObservableCollection<ProduccionItemViewModel>(
+                                 this.misRegistros.GroupBy(l => l.Linea)
+                                 .Select(r => new ProduccionItemViewModel
+                                 {
+                                     Linea = r.Key,
+                                     Aberturas = r.Sum(s => s.Aberturas)
+                                 })
                                          .OrderBy(o => o.Linea)
                                          .ToList());
             }

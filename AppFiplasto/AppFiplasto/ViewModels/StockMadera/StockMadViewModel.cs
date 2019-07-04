@@ -51,9 +51,7 @@ namespace AppFiplasto.ViewModels
         #region Metodos
         private async void GetStock()
         {
-
             this.IsRefreshing = true;
-
             var response = await apiService.StockMaderaJSON<StockMad>("M");
 
             this.IsRefreshing = false;

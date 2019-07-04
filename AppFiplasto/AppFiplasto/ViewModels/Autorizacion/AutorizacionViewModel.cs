@@ -75,7 +75,9 @@
                    this.misPermisos.Select(r => new AutorizacionItemViewModel
                    {
                        Permiso = r.Permiso,
-                       Descripcion = r.Descripcion
+                       Descripcion = r.Descripcion,
+                       Pendientes=r.Pendientes
+                       
                    })
                    .OrderBy(p => p.Descripcion)
                    .ToList());

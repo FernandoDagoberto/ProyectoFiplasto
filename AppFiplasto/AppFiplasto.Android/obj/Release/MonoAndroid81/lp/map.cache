@@ -4,6 +4,11 @@ FormsViewGroup
 GalaSoft.MvvmLight
 GalaSoft.MvvmLight.Extras
 GalaSoft.MvvmLight.Platform
+Newtonsoft.Json
+Plugin.Connectivity.Abstractions
+Plugin.Connectivity
+Plugin.Settings.Abstractions
+Plugin.Settings
 System.Runtime
 Xamarin.Android.Arch.Core.Common
 Xamarin.Android.Arch.Lifecycle.Common
@@ -28,11 +33,9 @@ Xamarin.Forms.Core
 Xamarin.Forms.Platform.Android
 Xamarin.Forms.Platform
 Xamarin.Forms.Xaml
-Newtonsoft.Json
-Plugin.Settings.Abstractions
-Plugin.Settings
 netstandard
 System.Resources.ResourceManager
 System.ComponentModel
 System.Reflection.Extensions
-Xamarin.Forms.CarouselView
+Xamarin.Android.Support.CustomTabs
+Xamarin.Essentials

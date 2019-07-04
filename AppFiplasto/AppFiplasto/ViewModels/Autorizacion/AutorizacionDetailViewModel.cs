@@ -15,14 +15,17 @@ namespace AppFiplasto.ViewModels
     public class AutorizacionDetailViewModel : BaseViewModel
     {
 
-        #region Atributos
+        #region Services
         private ApiService apiService;
+        #endregion
 
+        #region Atributos
         public List<RQHPendientes> misRequerimientos;
-
         private ObservableCollection<AutorizacionDetailItemViewModel> autorizacionDetalleOC;
 
         private bool isRefreshing;
+        private string filtro;
+        private string permiso;
 
         #endregion
 
@@ -39,8 +42,20 @@ namespace AppFiplasto.ViewModels
             set { this.SetValue(ref this.isRefreshing, value); }
         }
 
-        //public ICommand RefreshCommand => new RelayCommand(this.LoadRequerimientos(permiso));
-       
+        public string Filtro
+        {
+            get { return this.filtro; }
+            set
+            {
+                this.SetValue(ref this.filtro, value);
+                this.RefreshList();
+             }
+        }
+        #endregion
+        
+        #region Comandos
+        public ICommand SearchCommand => new RelayCommand(RefreshList);
+
         #endregion
 
         #region Constructor
@@ -48,6 +63,7 @@ namespace AppFiplasto.ViewModels
         {
             this.apiService = new ApiService();
             this.LoadRequerimientos(permiso);
+            this.permiso = permiso;
         }
 
         #endregion
@@ -64,7 +80,7 @@ namespace AppFiplasto.ViewModels
             {
                 await Application.Current.MainPage.DisplayAlert("Error", response.Message, "ok");
                 return;
-                
+
             };
 
             this.misRequerimientos = (List<RQHPendientes>)response.Result;
@@ -73,35 +89,87 @@ namespace AppFiplasto.ViewModels
 
         private void RefreshList()
         {
-            this.AutorizacionDetalleOC = new ObservableCollection<AutorizacionDetailItemViewModel>(
-                   this.misRequerimientos.Select(r => new AutorizacionDetailItemViewModel
-                   {
-                       CORMVH_MODFOR=r.CORMVH_MODFOR,
-                       CORMVH_CODFOR = r.CORMVH_CODFOR,
-                       CORMVH_FCHMOV = r.CORMVH_FCHMOV,
-                       CORMVH_NROFOR = r.CORMVH_NROFOR,
-                       CORMVH_TEXTOS = r.CORMVH_TEXTOS,
-                       CORMVH_COFLIS=r.CORMVH_COFLIS,
-                       SINIMP = r.SINIMP
+            if (string.IsNullOrEmpty(this.filtro))
+            {
+                var miListaAutorizacionDetailViewModel = this.misRequerimientos.Select(r => new AutorizacionDetailItemViewModel
+                {
+                    CORMVH_MODFOR = r.CORMVH_MODFOR,
+                    CORMVH_CODFOR = r.CORMVH_CODFOR,
+                    CORMVH_FCHMOV = r.CORMVH_FCHMOV,
+                    CORMVH_NROFOR = r.CORMVH_NROFOR,
+                    CORMVH_TEXTOS = r.CORMVH_TEXTOS,
+                    CORMVH_COFLIS = r.CORMVH_COFLIS,
+                    SINIMP = r.SINIMP
+
+                });
+
+                this.AutorizacionDetalleOC = new ObservableCollection<AutorizacionDetailItemViewModel>(
+                    miListaAutorizacionDetailViewModel.OrderBy(p => p.CORMVH_NROFOR)
+                  .ToList());
+            }
+            else
+            {
+                var miListaAutorizacionDetailViewModel = this.misRequerimientos.Select(r => new AutorizacionDetailItemViewModel
+                {
+                    CORMVH_MODFOR = r.CORMVH_MODFOR,
+                    CORMVH_CODFOR = r.CORMVH_CODFOR,
+                    CORMVH_FCHMOV = r.CORMVH_FCHMOV,
+                    CORMVH_NROFOR = r.CORMVH_NROFOR,
+                    CORMVH_TEXTOS = r.CORMVH_TEXTOS,
+                    CORMVH_COFLIS = r.CORMVH_COFLIS,
+                    SINIMP = r.SINIMP
+
+                })
+                  .Where(c => c.CORMVH_NROFOR.ToString().Contains(Filtro.ToString())).ToList();
+
+                this.AutorizacionDetalleOC = new ObservableCollection<AutorizacionDetailItemViewModel>(
+                    miListaAutorizacionDetailViewModel.OrderBy(p => p.CORMVH_NROFOR)
+                  .ToList());
+            }
 
 
-                   })
-                   .OrderBy(p => p.CORMVH_NROFOR)
-                   .ToList());
+
+
         }
 
-        public void DeleteRQInList(string codfor,int nrofor)
+
+           /* this.AutorizacionDetalleOC = new ObservableCollection<AutorizacionDetailItemViewModel>(
+                  this.misRequerimientos.Select(r => new AutorizacionDetailItemViewModel
+                  {
+                      CORMVH_MODFOR = r.CORMVH_MODFOR,
+                      CORMVH_CODFOR = r.CORMVH_CODFOR,
+                      CORMVH_FCHMOV = r.CORMVH_FCHMOV,
+                      CORMVH_NROFOR = r.CORMVH_NROFOR,
+                      CORMVH_TEXTOS = r.CORMVH_TEXTOS,
+                      CORMVH_COFLIS = r.CORMVH_COFLIS,
+                      SINIMP = r.SINIMP
+
+
+                  })
+                  .OrderBy(p => p.CORMVH_NROFOR)
+                  .ToList());
+            }
+
+            AutorizacionDetalleOC.Clear();
+
+
+           
+        }*/
+
+        public void DeleteRQInList(string codfor, int nrofor)
         {
             var previusProduct = this.misRequerimientos
                 .Where(p => p.CORMVH_CODFOR == codfor && p.CORMVH_NROFOR == nrofor).FirstOrDefault();
-            if(previusProduct!=null)
+            if (previusProduct != null)
             {
                 this.misRequerimientos.Remove(previusProduct);
             }
             this.RefreshList();
         }
-       
 
+
+
+    
     }
 
 

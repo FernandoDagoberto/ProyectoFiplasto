@@ -84,8 +84,8 @@ namespace AppFiplasto.ViewModels
         private void LoadTurnoGrupo()
         {
             TurnosList = new List<Turno>();
-            TurnosList.Add(new Turno() { Turnos = "06-22" });
-            TurnosList.Add(new Turno() { Turnos = "14-06" });
+            TurnosList.Add(new Turno() { Turnos = "06-14" });
+            TurnosList.Add(new Turno() { Turnos = "14-22" });
             TurnosList.Add(new Turno() { Turnos = "22-06" });
 
 
@@ -94,6 +94,7 @@ namespace AppFiplasto.ViewModels
             GruposList.Add(new Grupo() { Grupos = "B" });
             GruposList.Add(new Grupo() { Grupos = "C" });
             GruposList.Add(new Grupo() { Grupos = "D" });
+            GruposList.Add(new Grupo() { Grupos = "E" });
 
         }
 

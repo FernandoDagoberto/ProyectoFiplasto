@@ -17,8 +17,8 @@ namespace AppFiplasto.Services
 
             switch (pageName)
             {
-                case "AboutPage":
-                    await App.Navigator.PushAsync(new AboutPage());
+                case "InfoPage":
+                    await App.Navigator.PushAsync(new InfoPage());
                     break;
                 case "SetupPage":
                     await App.Navigator.PushAsync(new SetupPage());

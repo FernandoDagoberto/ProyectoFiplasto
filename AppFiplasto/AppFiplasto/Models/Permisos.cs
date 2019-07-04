@@ -11,7 +11,8 @@ namespace AppFiplasto.Models
         public string Usuario{ get; set; }
         public string Permiso{ get; set; }
         public string Descripcion{ get; set; }
+        public int Pendientes { get; set; }
 
-        
+
     }
 }

@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETStandard,Version=v2.0/",
-    "signature": "51359f2f809a871d9c521ad25841949c27b0db70"
+    "signature": "4f1540bf60f0b8ac0721baa969b5708ac8206329"
   },
   "compilationOptions": {},
   "targets": {
@@ -12,7 +12,9 @@
           "MvvmLightLibs": "5.4.1.1",
           "NETStandard.Library": "2.0.3",
           "Newtonsoft.Json": "12.0.2",
+          "Xam.Plugin.Connectivity": "4.0.0.190-beta",
           "Xam.Plugins.Settings": "3.1.1",
+          "Xamarin.Essentials": "1.0.0",
           "Xamarin.Forms": "3.1.0.697729",
           "Mono.Android": "0.0.0.0"
         },
@@ -54,6 +56,29 @@
           }
         }
       },
+      "System.Numerics.Vectors/4.5.0": {
+        "runtime": {
+          "lib/netstandard2.0/System.Numerics.Vectors.dll": {
+            "assemblyVersion": "4.1.4.0",
+            "fileVersion": "4.6.26515.6"
+          }
+        }
+      },
+      "Xam.Plugin.Connectivity/4.0.0.190-beta": {
+        "dependencies": {
+          "NETStandard.Library": "2.0.3"
+        },
+        "runtime": {
+          "lib/netstandard1.0/Plugin.Connectivity.Abstractions.dll": {
+            "assemblyVersion": "4.0.0.190",
+            "fileVersion": "4.0.0.190"
+          },
+          "lib/netstandard1.0/Plugin.Connectivity.dll": {
+            "assemblyVersion": "4.0.0.190",
+            "fileVersion": "4.0.0.190"
+          }
+        }
+      },
       "Xam.Plugins.Settings/3.1.1": {
         "dependencies": {
           "NETStandard.Library": "2.0.3"
@@ -66,6 +91,17 @@
           "lib/netstandard1.0/Plugin.Settings.dll": {
             "assemblyVersion": "3.1.1.0",
             "fileVersion": "3.1.1.0"
+          }
+        }
+      },
+      "Xamarin.Essentials/1.0.0": {
+        "dependencies": {
+          "System.Numerics.Vectors": "4.5.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Xamarin.Essentials.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
           }
         }
       },
@@ -129,12 +165,33 @@
       "path": "newtonsoft.json/12.0.2",
       "hashPath": "newtonsoft.json.12.0.2.nupkg.sha512"
     },
+    "System.Numerics.Vectors/4.5.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-nATsBTD2CKr4AYN6eRszhX4sptImWmBJwB/U6XKCWWfnCcrTBw8XSCm3QA9gjppkHTr8OkXUY21MR91D3QZXsw==",
+      "path": "system.numerics.vectors/4.5.0",
+      "hashPath": "system.numerics.vectors.4.5.0.nupkg.sha512"
+    },
+    "Xam.Plugin.Connectivity/4.0.0.190-beta": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-tDxs/D2VH+6edGlGZunu34GAcuYE6SM0j5DetAqBiaqQHMnoPYq4wH+H9xZVioRLEA1uo1JpPzXcJn+Ld1l/CQ==",
+      "path": "xam.plugin.connectivity/4.0.0.190-beta",
+      "hashPath": "xam.plugin.connectivity.4.0.0.190-beta.nupkg.sha512"
+    },
     "Xam.Plugins.Settings/3.1.1": {
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-Bu7xx61R2xnH+vY0LyFWiDNfuS25OWR3n9Yu3Gdutpgy7T7F/c1JieptS6YxRzz4WXJzaj0ACz/zQ0OwDiyIvw==",
       "path": "xam.plugins.settings/3.1.1",
       "hashPath": "xam.plugins.settings.3.1.1.nupkg.sha512"
+    },
+    "Xamarin.Essentials/1.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-WZiNlNChkqElCuYEg8rHw8qH1Dz7rnHJyfz831dsMLE+/42Wk1mG662sdgBjsbT/rltvUl8YLcKWgOi8jWlqzw==",
+      "path": "xamarin.essentials/1.0.0",
+      "hashPath": "xamarin.essentials.1.0.0.nupkg.sha512"
     },
     "Xamarin.Forms/3.1.0.697729": {
       "type": "package",

@@ -10,7 +10,7 @@
         <NavigationPage x:Name="Navigator"
                         BarBackgroundColor="{StaticResource MainColor}">
             <x:Arguments>
-                <pages:SetupPage/>
+                <pages:InfoPage/>
             </x:Arguments>
         </NavigationPage>
     </MasterDetailPage.Detail>

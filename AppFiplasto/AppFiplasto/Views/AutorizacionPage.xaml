@@ -10,51 +10,59 @@
             BindingContext="{Binding AutorizacionesVM}"
             Padding="8">
             <ListView
-                IsRefreshing="{Binding IsRefreshing}"
-                HasUnevenRows="True"
                 IsPullToRefreshEnabled="True"
-                RefreshCommand="{Binding RefreshCommand}"
-                ItemsSource="{Binding AutorizacionesOC}">
+                IsRefreshing="{Binding IsRefreshing}"
+                ItemsSource="{Binding AutorizacionesOC}"
+                HasUnevenRows="True"
+                RefreshCommand="{Binding RefreshCommand}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <StackLayout
                                 BackgroundColor="{StaticResource BackgroundColor}"
                                 Padding="3">
-                                <Grid 
-                                    BackgroundColor="{StaticResource MenuColor }">
-                                    <Grid.GestureRecognizers>
-                                        <TapGestureRecognizer Command="{Binding SelectAutorizacionCommand}"/>
-                                    </Grid.GestureRecognizers>
+                                <Frame
+                                    BackgroundColor="White"
+                                    BorderColor="{StaticResource MainColor}"
+                                    CornerRadius="20">
+                                    <Grid>
+                                        <Grid.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding SelectAutorizacionCommand}"/>
+                                        </Grid.GestureRecognizers>
 
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="0.8*" />
-                                        <ColumnDefinition Width="0.2*"/>
-                                    </Grid.ColumnDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="0.8*" />
+                                            <ColumnDefinition Width="0.2*"/>
+                                        </Grid.ColumnDefinitions>
 
-                                    <StackLayout Orientation="Horizontal">
-                                        <Label 
-                                    FontSize="Small"
-                                    TextColor="{StaticResource FontColor}"
-                                    Text="{Binding Descripcion}"/>
-                                    </StackLayout>
-                                    <StackLayout
-                                    Grid.Column="1"
-                                    HeightRequest="25"
-                                    WidthRequest="25"
-                                    VerticalOptions="CenterAndExpand"
-                                    HorizontalOptions="EndAndExpand">
-                                        <Image
-                                        HorizontalOptions="CenterAndExpand"
-                                        Source="ic_chev"/>
-                                    </StackLayout>
-                                </Grid>
+                                        <StackLayout 
+                                        Orientation="Horizontal">
+                                            <Label 
+                                            FontSize="Small"
+                                            FontAttributes="Bold"
+                                            TextColor="{StaticResource FontColor}"
+                                            Text="{Binding Descripcion}"/>
+                                        </StackLayout>
+                                        <StackLayout
+                                        Grid.Column="1"
+                                        HeightRequest="25"
+                                        WidthRequest="25"
+                                        VerticalOptions="CenterAndExpand"
+                                        HorizontalOptions="EndAndExpand">
+                                            <Label
+                                            FontSize="Medium"
+                                            FontAttributes="Bold"
+                                            TextColor="{StaticResource MainColor }"
+                                            Text="{Binding Pendientes}"/>
+                                        </StackLayout>
+                                    </Grid>
+                                </Frame>
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-        </StackLayout>
+       </StackLayout>
       
     </ContentPage.Content>
 </ContentPage>

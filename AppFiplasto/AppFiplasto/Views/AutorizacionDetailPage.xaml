@@ -9,6 +9,12 @@
         <StackLayout
             BindingContext="{Binding AutorizacionDetallesVM}"
              Padding="8">
+            <SearchBar
+                BackgroundColor="{StaticResource BackgroundColor}"
+                HeightRequest="46"
+                Text="{Binding Filtro,Mode=TwoWay}"
+                Placeholder="Buscar..."
+                SearchCommand="{Binding SearchCommand}"/>
             <ListView
                IsRefreshing="{Binding IsRefreshing}"
                HasUnevenRows="True"
@@ -21,22 +27,26 @@
                             <StackLayout
                                 BackgroundColor="{StaticResource BackgroundColor}"
                                 Padding="3">
-                                <Grid 
-                                    BackgroundColor="{StaticResource MenuColor }">
-                                    <Grid.GestureRecognizers>
-                                        <TapGestureRecognizer Command="{Binding SelectItemCommand}"/>
-                                    </Grid.GestureRecognizers>
+                                <Frame
+                                    BackgroundColor="White"
+                                    BorderColor="{StaticResource MainColor}"
+                                    CornerRadius="20">
+                                    <Grid>
+                                        <Grid.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding SelectItemCommand}"/>
+                                        </Grid.GestureRecognizers>
 
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="Auto" />
-                                        <ColumnDefinition Width="*"/>
-                                    </Grid.ColumnDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
 
                                         <StackLayout 
                                             Grid.Column="0">
                                             <Label 
+                                                FontAttributes="Bold"
                                                 FontSize="Medium"
-                                                HorizontalOptions="StartAndExpand"
+                                                HorizontalOptions="CenterAndExpand"
                                                 TextColor="{StaticResource FontColor}"
                                                 Text="{Binding CORMVH_NROFOR,StringFormat='N°: {0}'}"/>
                                             <Label 
@@ -50,7 +60,7 @@
                                                 TextColor="{StaticResource FontColor}"
                                                 Text="{Binding CORMVH_TEXTOS}"/>
 
-                                         </StackLayout>
+                                        </StackLayout>
                                         <StackLayout
                                              Grid.Column="1"
                                             HeightRequest="25"
@@ -62,8 +72,8 @@
                                                    Source="ic_chev"/>
 
                                         </StackLayout>
-                                    
-                                </Grid>
+                                    </Grid>
+                                </Frame>
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>

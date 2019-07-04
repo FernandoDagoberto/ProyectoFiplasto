@@ -81,7 +81,6 @@ namespace AppFiplasto.ViewModels
                                    Tipmad = r.Key,
                                    Neto = r.Sum(s => s.Neto),
                                    
-
                                })
                                .ToList());
                        

@@ -74,5 +74,13 @@ namespace AppFiplasto.Droid
             DataSet retorno = servicio.InformeProduccion(UltimoDiaMesAnt,FchHasta);
             return retorno;
         }
+
+        public bool ControlaVersion(int Compilacion, int Version)
+        {
+            var servicio = new WebServiceXamarin.WebService();
+            bool retorno = servicio.ControlaVersion(Compilacion, Version);
+            return retorno;
+            
+        }
     }
 }

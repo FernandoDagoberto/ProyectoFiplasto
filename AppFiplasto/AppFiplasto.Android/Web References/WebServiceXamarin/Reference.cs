@@ -44,6 +44,8 @@ namespace AppFiplasto.Droid.WebServiceXamarin {
         
         private System.Threading.SendOrPostCallback InformeProduccionOperationCompleted;
         
+        private System.Threading.SendOrPostCallback ControlaVersionOperationCompleted;
+        
         private bool useDefaultCredentialsSetExplicitly;
         
         /// <remarks/>
@@ -102,6 +104,9 @@ namespace AppFiplasto.Droid.WebServiceXamarin {
         
         /// <remarks/>
         public event InformeProduccionCompletedEventHandler InformeProduccionCompleted;
+        
+        /// <remarks/>
+        public event ControlaVersionCompletedEventHandler ControlaVersionCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/ListaStockMadera", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -321,6 +326,37 @@ namespace AppFiplasto.Droid.WebServiceXamarin {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/ControlaVersion", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public bool ControlaVersion(int Compilacion, int Version) {
+            object[] results = this.Invoke("ControlaVersion", new object[] {
+                        Compilacion,
+                        Version});
+            return ((bool)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void ControlaVersionAsync(int Compilacion, int Version) {
+            this.ControlaVersionAsync(Compilacion, Version, null);
+        }
+        
+        /// <remarks/>
+        public void ControlaVersionAsync(int Compilacion, int Version, object userState) {
+            if ((this.ControlaVersionOperationCompleted == null)) {
+                this.ControlaVersionOperationCompleted = new System.Threading.SendOrPostCallback(this.OnControlaVersionOperationCompleted);
+            }
+            this.InvokeAsync("ControlaVersion", new object[] {
+                        Compilacion,
+                        Version}, this.ControlaVersionOperationCompleted, userState);
+        }
+        
+        private void OnControlaVersionOperationCompleted(object arg) {
+            if ((this.ControlaVersionCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.ControlaVersionCompleted(this, new ControlaVersionCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         public new void CancelAsync(object userState) {
             base.CancelAsync(userState);
         }
@@ -517,6 +553,32 @@ namespace AppFiplasto.Droid.WebServiceXamarin {
             get {
                 this.RaiseExceptionIfNecessary();
                 return ((System.Data.DataSet)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3062.0")]
+    public delegate void ControlaVersionCompletedEventHandler(object sender, ControlaVersionCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3062.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class ControlaVersionCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal ControlaVersionCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public bool Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((bool)(this.results[0]));
             }
         }
     }

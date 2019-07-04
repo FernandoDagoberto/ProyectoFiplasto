@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.OleDb;
 using System.Data.SqlClient;
+using System.Linq;
 using System.Web.Services;
 using MySql.Data.MySqlClient;
 
@@ -138,21 +139,52 @@ namespace WebService
 
 
             Result result = new Result();
+            DataSet ds = new DataSet();
 
             try
             {
-                if (usuario == "mpereyra")
+
+                switch (usuario)
                 {
-                    usuario = "mpereira";
+                    case "mpereyra":
+                        usuario = "mpereira";
+                        break;
+                                 
                 };
 
-                string sql = "SELECT cwOMUR_UID as Usuario,cwOMUR_ObjectName as Permiso,cwOMUR_ObjectDesc as Descripcion FROM cwOMUserRights" +
+                string sql = "SELECT cwOMUR_UID as Usuario,cwOMUR_ObjectName as Permiso,cwOMUR_ObjectDesc as Descripcion,0 as Pendientes FROM cwOMUserRights" +
                         " where cwOMUR_UID = '" + usuario + "'and cwOMUR_ObjectDesc like 'autori%' and cwOMUR_AccessLevel = 8 and cwOMUR_CompanyName = 'FIPLASTO'";
                 SqlDataAdapter da = new SqlDataAdapter(sql, conn);
                 // Fill The DataSet With the Contents of the Stock Table
-                DataSet ds = new DataSet();
+            
+                
                 da.Fill(ds, "Reporte");
+              
+                foreach (DataRow row in ds.Tables["Reporte"].Rows)
+                {
 
+                  DataSet cantidad=  RQPendientes(row["Permiso"].ToString().Replace("USR", ""));
+
+                    if (cantidad  is null)
+                    {
+                        
+                    }
+                    else
+                    {
+                        var numero = cantidad.Tables[0].Rows.Count;
+                        if (numero>0)
+                        {
+                            row["Pendientes"] = numero;
+
+                        }
+                        else
+                        {
+                            row.Delete();
+                        }
+                    }
+                }
+
+                ds.AcceptChanges();
                 return ds;
             }
             catch (Exception ex)
@@ -178,16 +210,16 @@ namespace WebService
             try
             {
 
-                string sql = "SELECT GRTDAH_RECCOM From GRTDAH where GRTDAH_CODEST='" + esquemaAutorizacion + "'";
-                SqlDataAdapter da = new SqlDataAdapter(sql, conn);
+                string sql1 = "SELECT GRTDAH_RECCOM From GRTDAH where GRTDAH_CODEST='" + esquemaAutorizacion + "'";
+                SqlDataAdapter da1 = new SqlDataAdapter(sql1, conn);
                 // Fill The DataSet With the Contents of the Stock Table
-                DataSet ds = new DataSet();
-                da.Fill(ds, "Reporte");
+                DataSet ds1 = new DataSet();
+                da1.Fill(ds1, "Reporte");
 
-                DataTable dt = new DataTable();
-                dt = ds.Tables[0];
+                DataTable dt1 = new DataTable();
+                dt1 = ds1.Tables[0];
 
-                DataRow row = dt.Rows[0];
+                DataRow row = dt1.Rows[0];
 
                 string consulta = row["GRTDAH_RECCOM"].ToString();
 
@@ -206,16 +238,14 @@ namespace WebService
 
 
 
-
-
-                SqlDataAdapter da1 = new SqlDataAdapter(resultado, conn);
+                SqlDataAdapter da2 = new SqlDataAdapter(resultado, conn);
                 // Fill The DataSet With the Contents of the Stock Table
-                DataSet ds1 = new DataSet();
-                da1.Fill(ds1, "Reporte");
+                DataSet ds2 = new DataSet();
+                da2.Fill(ds2, "Reporte");
 
 
 
-                return ds1;
+                return ds2;
             }
             catch (Exception ex)
             {
@@ -286,40 +316,12 @@ namespace WebService
             }
             return false;
         }
-
-
-
-
-
-
-
-
-
+                                    
         [WebMethod]
         public DataSet InformeProduccion(string UltimoDiaMesAnterior,string FechaHasta)
         {
 
-            /* //Fecha Día anterior
-             DateTime fchDA = fecha.Date.AddDays(-1);
-             fchDA = new DateTime(fchDA.Year, fchDA.Month, fchDA.Day, 22, 0, 0);*/
-
-            
-
-            //Fecha Inicio Mes
-           /* DateTime UltimoDiaMesAnterior = new DateTime(fecha.Year, fecha.Month, 1);
-            UltimoDiaMesAnterior = UltimoDiaMesAnterior.AddDays(-1);
-            UltimoDiaMesAnterior = new DateTime(UltimoDiaMesAnterior.Year, UltimoDiaMesAnterior.Month, UltimoDiaMesAnterior.Day);
-
-
-
-            
-
-           
-            //Fecha Hasta
-            DateTime fchH = new DateTime(fecha.Year, fecha.Month, fecha.Day, 21, 59, 59);*/
-
-
-            SqlConnection conn = new SqlConnection(new DBConnection().ConnectionString);
+          SqlConnection conn = new SqlConnection(new DBConnection().ConnectionString);
             conn.Open();
             Result result = new Result();
 
@@ -330,7 +332,7 @@ namespace WebService
                             "hora>='" + UltimoDiaMesAnterior+ "' and " +
                             "hora<='" + FechaHasta + "' and " +
                             "producto is not null " +
-                            "group by linea,producto";
+                            "group by linea,producto " ;
                               SqlDataAdapter da = new SqlDataAdapter(sql, conn);
                 // Fill The DataSet With the Contents of the Stock Table
                 DataSet ds = new DataSet();
@@ -353,5 +355,30 @@ namespace WebService
             return null;
         }
 
+        [WebMethod]
+        public bool ControlaVersion(int Compilacion,int Version)
+        {
+            Result result = new Result();
+            int ultimaCompilacion = 1;
+            int ultimaVersion= 2;
+            try
+            {
+                if (ultimaCompilacion>Compilacion || ultimaVersion > Version)
+                {
+                   return true;
+                }
+
+                return false;
+            }
+            catch (Exception ex)
+            {
+                result.Error = ex.ToString();
+            }
+            finally
+            {
+                
+            }
+            return false;
+        }
     }
 }

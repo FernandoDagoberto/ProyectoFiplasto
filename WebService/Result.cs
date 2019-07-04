@@ -13,5 +13,7 @@ namespace WebService
         public bool ValidUser { get; set; }
         
         public DataSet Datos { get; set; }
+
+        public string Mensaje { get; set; }
     }
 }

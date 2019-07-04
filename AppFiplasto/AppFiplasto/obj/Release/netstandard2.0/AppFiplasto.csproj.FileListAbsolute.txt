@@ -7,7 +7,6 @@ F:\Projects\ProyectoFiplasto\AppFiplasto\AppFiplasto\bin\Release\netstandard2.0\
 F:\Projects\ProyectoFiplasto\AppFiplasto\AppFiplasto\obj\Release\netstandard2.0\AppFiplasto.csprojAssemblyReference.cache
 F:\Projects\ProyectoFiplasto\AppFiplasto\AppFiplasto\obj\Release\netstandard2.0\App.xaml.g.cs
 F:\Projects\ProyectoFiplasto\AppFiplasto\AppFiplasto\obj\Release\netstandard2.0\MainPage.xaml.g.cs
-F:\Projects\ProyectoFiplasto\AppFiplasto\AppFiplasto\obj\Release\netstandard2.0\Views\AboutPage.xaml.g.cs
 F:\Projects\ProyectoFiplasto\AppFiplasto\AppFiplasto\obj\Release\netstandard2.0\Views\LoginPage.xaml.g.cs
 F:\Projects\ProyectoFiplasto\AppFiplasto\AppFiplasto\obj\Release\netstandard2.0\Views\MasterPage.xaml.g.cs
 F:\Projects\ProyectoFiplasto\AppFiplasto\AppFiplasto\obj\Release\netstandard2.0\Views\MenuPage.xaml.g.cs
@@ -30,3 +29,7 @@ F:\Projects\ProyectoFiplasto\AppFiplasto\AppFiplasto\obj\Release\netstandard2.0\
 F:\Projects\ProyectoFiplasto\AppFiplasto\AppFiplasto\obj\Release\netstandard2.0\Views\BioPendientePage.xaml.g.cs
 F:\Projects\ProyectoFiplasto\AppFiplasto\AppFiplasto\obj\Release\netstandard2.0\Views\BioTabPage.xaml.g.cs
 F:\Projects\ProyectoFiplasto\AppFiplasto\AppFiplasto\obj\Release\netstandard2.0\Views\ProduccionPage.xaml.g.cs
+F:\Projects\ProyectoFiplasto\AppFiplasto\AppFiplasto\obj\Release\netstandard2.0\Views\BioStockMadPage.xaml.g.cs
+F:\Projects\ProyectoFiplasto\AppFiplasto\AppFiplasto\obj\Release\netstandard2.0\Views\StockTabPage.xaml.g.cs
+F:\Projects\ProyectoFiplasto\AppFiplasto\AppFiplasto\obj\Release\netstandard2.0\Views\InfoPage.xaml.g.cs
+F:\Projects\ProyectoFiplasto\AppFiplasto\AppFiplasto\obj\Release\netstandard2.0\Views\ProduccionDetailPage.xaml.g.cs

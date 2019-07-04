@@ -6,6 +6,7 @@
     using GalaSoft.MvvmLight.Command;
     using Xamarin.Forms;
     using AppFiplasto.Helpers;
+    using Plugin.Connectivity;
 
     public class LoginViewModel : BaseViewModel
     {
@@ -80,6 +81,20 @@
             this.IsRunning = true;
             this.IsEnabled = false;
 
+          /*  var connection = await this.apiService.CheckConnection();
+
+            if (!connection.IsSuccess)
+            {
+                this.IsRunning = false;
+                this.IsEnabled = true;
+
+                await Application.Current.MainPage.DisplayAlert(
+                   "Error",
+                   connection.Message,
+                   "OK");
+                return;
+            }*/
+
             if (IsRunning)
             {
                 var response = await apiService.Login(this.Usuario, this.Password);
@@ -104,6 +119,7 @@
             mainViewModel.StockVM = new StockMadViewModel();
             mainViewModel.BioStockMadVM = new BioStockMadViewModel();
             mainViewModel.ProduccionVM = new ProduccionViewModel();
+            mainViewModel.InfoVM = new InfoViewModel();
             mainViewModel.UsuarioLogueado = this.Usuario;
             this.IsRunning = false;
             this.IsEnabled = true;

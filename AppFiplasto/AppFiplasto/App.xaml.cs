@@ -22,14 +22,16 @@ namespace AppFiplasto
             if (Settings.IsRemember)
             {
                 var mainViewModel = MainViewModel.GetInstance();
-                mainViewModel.UsuarioLogueado = Settings.Usuario;
-                mainViewModel.ProduccionVM = new ProduccionViewModel();
+              /* mainViewModel.UsuarioLogueado = Settings.Usuario;
                 mainViewModel.DescarteBiomasaVM = new BioPendienteViewModel();
                 mainViewModel.CargadosBiomasaVM = new BioCargadosViewModel();
                 mainViewModel.InformeBiomasaVM = new BioInformeViewModel();
-                // mainViewModel.AutorizacionesVM = new AutorizacionViewModel();
                 mainViewModel.StockVM = new StockMadViewModel();
                 mainViewModel.BioStockMadVM = new BioStockMadViewModel();
+                mainViewModel.ProduccionVM = new ProduccionViewModel();
+               mainViewModel.AutorizacionesVM = new AutorizacionViewModel();*/
+                mainViewModel.InfoVM = new InfoViewModel();
+               
                 this.MainPage = new MasterPage();
                 return;
             }
@@ -52,5 +54,8 @@ namespace AppFiplasto
         {
             // Handle when your app resumes
         }
+
+        
+
     }
 }

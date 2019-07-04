@@ -21,9 +21,11 @@ namespace AppFiplasto.ViewModels
             await App.Navigator.PushAsync(new AutorizacionDetailPage());
         }
 
+        
 
 
-       
+
+
     }
 
 

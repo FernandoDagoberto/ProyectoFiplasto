@@ -44,39 +44,6 @@ namespace AppFiplasto.ViewModels
                                         .ToList());
         }
 
-       
-
-
-
-        /*#region Atributos
-        private ApiService apiService;
-        #endregion
-
-
-
-        #region Propiedades
-        public StockMad StockMad { get; set; }
-        #endregion
-
-        #region Constructor
-        public DetailStockMadViewModel(StockMad stockMad)
-        {
-            this.StockMad = stockMad;
-            this.apiService = new ApiService();
-        }
-
-
-
-        #endregion*/
-
-
-
-
-
-
-
-
-
 
     }
 }

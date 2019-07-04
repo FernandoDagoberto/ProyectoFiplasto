@@ -1,16 +1,45 @@
-﻿using AppFiplasto.Models;
-using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
-using Xamarin.Forms;
-
-namespace AppFiplasto.Services
+﻿namespace AppFiplasto.Services
 {
+    using AppFiplasto.Models;
+    using Newtonsoft.Json;
+    using Plugin.Connectivity;
+    using System;
+    using System.Collections.Generic;
+    using System.Threading.Tasks;
+    using Xamarin.Forms;
+
     public class ApiService
     {
+
+        public async Task<Response> CheckConnection()
+        {
+            if (!CrossConnectivity.Current.IsConnected)
+            {
+                return new Response
+                {
+                    IsSuccess = false,
+                    Message = "Please turn on your internet setting."
+                };
+            }
+
+            var host = "google.com";
+            var isReachable = CrossConnectivity.Current.IsReachable (host) .Result; 
+                                   
+            if (!isReachable)
+            {
+                return new Response
+                {
+                    IsSuccess = false,
+                    Message = "Check you internet connection.",
+                };
+            }
+
+            return new Response
+            {
+                IsSuccess = true,
+                Message = "OK",
+            };
+        }
 
         public async Task<Response> Login(string Usuario,string Password)
         {
@@ -45,7 +74,6 @@ namespace AppFiplasto.Services
 
             }
         }
-
 
         public async Task<Response> BiomasaJSON<T>()
         {
@@ -265,7 +293,40 @@ namespace AppFiplasto.Services
             }
         }
 
+        public async Task<Response> ControlVersion(int Compilacion,int Version)
+        {
+            try
+            {
+                var servicio = DependencyService.Get<IValido>();
+                bool resultado = servicio.ControlaVersion(Compilacion,Version);
 
+
+
+                if (!resultado)
+                {
+                    return new Response
+                    {
+                        IsSuccess = false,
+                        Message = "Aplicación actualizada",
+                    };
+                }
+
+                return new Response
+                {
+                    IsSuccess = true,
+                    Message = "Existe una nueva actualización",
+                };
+            }
+            catch (Exception ex)
+            {
+                return new Response
+                {
+                    IsSuccess = false,
+                    Message = ex.Message
+                };
+
+            }
+        }
 
 
     }

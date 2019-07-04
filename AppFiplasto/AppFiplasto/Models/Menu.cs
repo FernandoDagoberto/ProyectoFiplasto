@@ -11,5 +11,6 @@ namespace AppFiplasto.Models
         public string Title{ get; set; }
 
         public string PageName{ get; set; }
-    }
+
+     }
 }

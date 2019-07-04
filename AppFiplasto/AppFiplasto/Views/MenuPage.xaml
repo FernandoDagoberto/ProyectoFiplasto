@@ -2,14 +2,14 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AppFiplasto.Views.MenuPage"
-             BackgroundColor="{StaticResource MenuColor}"
+             BackgroundColor= "{StaticResource MenuColor}"
              BindingContext="{Binding Main,Source={StaticResource Locator}}"
              Title="Menu">
     <ContentPage.Content>
         <StackLayout 
             Padding="10">
             <Image
-                HeightRequest="150"
+                HeightRequest="100"
                 Source="logo_nuevo">
             </Image>
             <ListView

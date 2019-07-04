@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace AppFiplasto.ViewModels
 {
-    public class MainViewModel
+    public class MainViewModel: BaseViewModel
     {
         //Principal clase del proyecto
         #region Atributos
@@ -16,10 +16,12 @@ namespace AppFiplasto.ViewModels
 
         private NavigationService navigationService;
 
+        
         #endregion
 
         #region Properties
 
+      
         public string UsuarioLogueado { get; set; }
 
         public LoginViewModel Login { get; set; }
@@ -30,7 +32,8 @@ namespace AppFiplasto.ViewModels
         public BioInformeViewModel InformeBiomasaVM { get; set; }
         public BioStockMadViewModel BioStockMadVM{ get; set; }
 
-
+        public InfoViewModel InfoVM { get; set; }
+        
         public ObservableCollection<MenuItemViewModel> Menus { get; set; }
 
         public StockMadViewModel StockVM { get; set; }
@@ -42,6 +45,7 @@ namespace AppFiplasto.ViewModels
         public AutorizacionConfirmacionViewModel ConfirmarRQAutorizacion { get; set; }
 
         public ProduccionViewModel ProduccionVM { get; set; }
+        public DetailProduccionViewModel DetailProduccionVM { get; set; }
 
         #endregion
 
@@ -54,6 +58,7 @@ namespace AppFiplasto.ViewModels
             this.LoadMenus();
             apiService = new ApiService();
             navigationService = new NavigationService();
+            
 
         }
         #endregion
@@ -70,39 +75,40 @@ namespace AppFiplasto.ViewModels
             return instance;
         }
 
-        private void LoadMenus()
+        public void LoadMenus()
         {
             var menus = new List<Models.Menu>
             {
                 new Models.Menu
                 {
-                    Icon="ic_info",
+                    Icon="ic_madera",
                     PageName="StockTabPage",
                     Title="Stock Madera"
-                },
+                 },
                  new Models.Menu
                 {
-                    Icon="ic_info",
+                    Icon="ic_autoriza",
                     PageName="AutorizacionPage",
                     Title="Autorizaciones"
+                                       
                 },
                  new Models.Menu
                 {
-                    Icon="ic_info",
+                    Icon="ic_biomasa",
                     PageName="BioTabPage",
                     Title="Biomasa"
                 },
                  new Models.Menu
                 {
-                    Icon = "ic_info",
+                    Icon = "ic_produccion",
                     PageName = "ProduccionPage",
                     Title = "Producción"
                 },
                  new Models.Menu
                 {
                     Icon="ic_info",
-                    PageName="AboutPage",
-                    Title="About"
+                    PageName="InfoPage",
+                    Title="Acerca de"
                 },
                 new Models.Menu
                  {

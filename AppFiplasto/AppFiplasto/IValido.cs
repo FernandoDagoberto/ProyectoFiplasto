@@ -24,5 +24,7 @@ namespace AppFiplasto
         bool AutorizaRQ(string esquemaAutorizacion, string modfor, string codfor, string nrofor, string user);
 
         DataSet Produccion(string UltimaDiaMesAnt,string fechaHasta);
+
+        bool ControlaVersion(int Compilacion, int Version);
     }
 }

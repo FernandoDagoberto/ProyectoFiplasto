@@ -9,11 +9,14 @@ F:\Projects\ProyectoFiplasto\AppFiplasto\AppFiplasto.Android\obj\Release\MonoAnd
 F:\Projects\ProyectoFiplasto\AppFiplasto\AppFiplasto.Android\obj\Release\MonoAndroid81\android\assets\Mono.Android.dll
 F:\Projects\ProyectoFiplasto\AppFiplasto\AppFiplasto.Android\obj\Release\MonoAndroid81\android\assets\mscorlib.dll
 F:\Projects\ProyectoFiplasto\AppFiplasto\AppFiplasto.Android\obj\Release\MonoAndroid81\android\assets\Newtonsoft.Json.dll
+F:\Projects\ProyectoFiplasto\AppFiplasto\AppFiplasto.Android\obj\Release\MonoAndroid81\android\assets\Plugin.Connectivity.Abstractions.dll
+F:\Projects\ProyectoFiplasto\AppFiplasto\AppFiplasto.Android\obj\Release\MonoAndroid81\android\assets\Plugin.Connectivity.dll
 F:\Projects\ProyectoFiplasto\AppFiplasto\AppFiplasto.Android\obj\Release\MonoAndroid81\android\assets\Plugin.Settings.Abstractions.dll
 F:\Projects\ProyectoFiplasto\AppFiplasto\AppFiplasto.Android\obj\Release\MonoAndroid81\android\assets\Plugin.Settings.dll
 F:\Projects\ProyectoFiplasto\AppFiplasto\AppFiplasto.Android\obj\Release\MonoAndroid81\android\assets\System.Core.dll
 F:\Projects\ProyectoFiplasto\AppFiplasto\AppFiplasto.Android\obj\Release\MonoAndroid81\android\assets\System.Data.dll
 F:\Projects\ProyectoFiplasto\AppFiplasto\AppFiplasto.Android\obj\Release\MonoAndroid81\android\assets\System.dll
+F:\Projects\ProyectoFiplasto\AppFiplasto\AppFiplasto.Android\obj\Release\MonoAndroid81\android\assets\System.Numerics.dll
 F:\Projects\ProyectoFiplasto\AppFiplasto\AppFiplasto.Android\obj\Release\MonoAndroid81\android\assets\System.Web.Services.dll
 F:\Projects\ProyectoFiplasto\AppFiplasto\AppFiplasto.Android\obj\Release\MonoAndroid81\android\assets\System.Xml.dll
 F:\Projects\ProyectoFiplasto\AppFiplasto\AppFiplasto.Android\obj\Release\MonoAndroid81\android\assets\System.Xml.Linq.dll
@@ -25,6 +28,7 @@ F:\Projects\ProyectoFiplasto\AppFiplasto\AppFiplasto.Android\obj\Release\MonoAnd
 F:\Projects\ProyectoFiplasto\AppFiplasto\AppFiplasto.Android\obj\Release\MonoAndroid81\android\assets\Xamarin.Android.Support.Compat.dll
 F:\Projects\ProyectoFiplasto\AppFiplasto\AppFiplasto.Android\obj\Release\MonoAndroid81\android\assets\Xamarin.Android.Support.Core.UI.dll
 F:\Projects\ProyectoFiplasto\AppFiplasto\AppFiplasto.Android\obj\Release\MonoAndroid81\android\assets\Xamarin.Android.Support.Core.Utils.dll
+F:\Projects\ProyectoFiplasto\AppFiplasto\AppFiplasto.Android\obj\Release\MonoAndroid81\android\assets\Xamarin.Android.Support.CustomTabs.dll
 F:\Projects\ProyectoFiplasto\AppFiplasto\AppFiplasto.Android\obj\Release\MonoAndroid81\android\assets\Xamarin.Android.Support.Design.dll
 F:\Projects\ProyectoFiplasto\AppFiplasto\AppFiplasto.Android\obj\Release\MonoAndroid81\android\assets\Xamarin.Android.Support.Fragment.dll
 F:\Projects\ProyectoFiplasto\AppFiplasto\AppFiplasto.Android\obj\Release\MonoAndroid81\android\assets\Xamarin.Android.Support.Media.Compat.dll
@@ -36,12 +40,12 @@ F:\Projects\ProyectoFiplasto\AppFiplasto\AppFiplasto.Android\obj\Release\MonoAnd
 F:\Projects\ProyectoFiplasto\AppFiplasto\AppFiplasto.Android\obj\Release\MonoAndroid81\android\assets\Xamarin.Android.Support.v7.Palette.dll
 F:\Projects\ProyectoFiplasto\AppFiplasto\AppFiplasto.Android\obj\Release\MonoAndroid81\android\assets\Xamarin.Android.Support.v7.RecyclerView.dll
 F:\Projects\ProyectoFiplasto\AppFiplasto\AppFiplasto.Android\obj\Release\MonoAndroid81\android\assets\Xamarin.Android.Support.Vector.Drawable.dll
+F:\Projects\ProyectoFiplasto\AppFiplasto\AppFiplasto.Android\obj\Release\MonoAndroid81\android\assets\Xamarin.Essentials.dll
 F:\Projects\ProyectoFiplasto\AppFiplasto\AppFiplasto.Android\obj\Release\MonoAndroid81\android\assets\Xamarin.Forms.Core.dll
 F:\Projects\ProyectoFiplasto\AppFiplasto\AppFiplasto.Android\obj\Release\MonoAndroid81\android\assets\Xamarin.Forms.Platform.Android.dll
 F:\Projects\ProyectoFiplasto\AppFiplasto\AppFiplasto.Android\obj\Release\MonoAndroid81\android\assets\Xamarin.Forms.Platform.dll
 F:\Projects\ProyectoFiplasto\AppFiplasto\AppFiplasto.Android\obj\Release\MonoAndroid81\android\assets\Xamarin.Forms.Xaml.dll
 F:\Projects\ProyectoFiplasto\AppFiplasto\AppFiplasto.Android\obj\Release\MonoAndroid81\android\assets\System.Net.Http.dll
-F:\Projects\ProyectoFiplasto\AppFiplasto\AppFiplasto.Android\obj\Release\MonoAndroid81\android\assets\System.Numerics.dll
 F:\Projects\ProyectoFiplasto\AppFiplasto\AppFiplasto.Android\obj\Release\MonoAndroid81\android\assets\System.Runtime.Serialization.dll
 F:\Projects\ProyectoFiplasto\AppFiplasto\AppFiplasto.Android\obj\Release\MonoAndroid81\android\assets\System.ServiceModel.Internals.dll
 F:\Projects\ProyectoFiplasto\AppFiplasto\AppFiplasto.Android\obj\Release\MonoAndroid81\android\assets\Mono.Security.dll

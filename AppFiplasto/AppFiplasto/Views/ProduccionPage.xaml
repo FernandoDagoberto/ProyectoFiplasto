@@ -6,7 +6,7 @@
              BindingContext="{Binding Main,Source={StaticResource Locator}}"
              Title="Producción">
     <ContentPage.Content>
-            <StackLayout
+        <StackLayout
             BindingContext="{Binding ProduccionVM}"
             Padding="8">
             <StackLayout 
@@ -24,101 +24,94 @@
                     TextColor="{StaticResource FontColor}"/>
             </StackLayout>
 
-           <Label 
+            <Label 
                TextColor="{StaticResource FontColor}"
                Text="Producción del día"/>
-            <ListView
-                BackgroundColor="DarkSeaGreen"
-                IsRefreshing="{Binding IsRefreshing}"
-                HasUnevenRows="True"
-                IsPullToRefreshEnabled="True"
-                RefreshCommand="{Binding RefreshCommand}"
-                ItemsSource="{Binding ProdDiariaOC}">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <Grid>
-                                <Grid.GestureRecognizers>
-                                    <TapGestureRecognizer Command="{Binding SelectStockMadCommand}"/>
-                                </Grid.GestureRecognizers>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto" />
-                                    <ColumnDefinition Width="*"/>
-                                </Grid.ColumnDefinitions>
-                                <StackLayout 
-                                    Orientation="Horizontal"
-                                   Grid.Column="1">
-                                    <Label 
-                                        FontSize="Medium"
-                                        HorizontalOptions="StartAndExpand"
-                                        Text="{Binding Linea}"/>
-                                    <Label 
-                                        FontSize="Medium"
-                                        HorizontalOptions="StartAndExpand"
-                                        Text="{Binding Producto}"/>
-                                </StackLayout>
-                                <StackLayout 
-                                    Grid.Column="2">
-                                    <Label 
-                                       FontSize="Medium"
-                                       HorizontalOptions="StartAndExpand"
-                                       Text="{Binding Aberturas,StringFormat=' {0} mts2'}"/>
-                                </StackLayout>
+            <Frame
+                BackgroundColor="White"
+                BorderColor="{StaticResource MainColor}"
+                CornerRadius="20">
+                <ListView
+                    IsRefreshing="{Binding IsRefreshing}"
+                    HasUnevenRows="True"
+                    IsPullToRefreshEnabled="True"
+                    RefreshCommand="{Binding RefreshCommand}"
+                    ItemsSource="{Binding ProdDiariaOC}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
 
-                            </Grid>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-
-            <Label 
+                                <Grid>
+                                    <Grid.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding SelectProduccionCommand}"/>
+                                    </Grid.GestureRecognizers>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <StackLayout 
+                                            Orientation="Horizontal"
+                                            Grid.Column="1">
+                                        <Label 
+                                                FontSize="Medium"
+                                                HorizontalOptions="StartAndExpand"
+                                                Text="{Binding Linea}"/>
+                                    </StackLayout>
+                                    <StackLayout 
+                                            Grid.Column="2">
+                                        <Label 
+                                                FontSize="Medium"
+                                                HorizontalOptions="StartAndExpand"
+                                                Text="{Binding Aberturas,StringFormat=' {0} mts2'}"/>
+                                    </StackLayout>
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Frame>
+            <Label
                 TextColor="{StaticResource FontColor}"
                 Text="Producción mensual"/>
-            <ListView
-                
-                BackgroundColor="DarkSeaGreen"
-                HasUnevenRows="True"
-                IsPullToRefreshEnabled="True"
-                RefreshCommand="{Binding RefreshCommand}"
-                ItemsSource="{Binding ProdMensualOC}">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <Grid>
-                                <Grid.GestureRecognizers>
-                                    <TapGestureRecognizer Command="{Binding SelectStockMadCommand}"/>
-                                </Grid.GestureRecognizers>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto" />
-                                    <ColumnDefinition Width="*"/>
-                                </Grid.ColumnDefinitions>
-                                <StackLayout 
-                                    Grid.Column="1"
-                                    Orientation="Horizontal">
-                                    <Label 
-                                        FontSize="Medium"
-                                        HorizontalOptions="StartAndExpand"
-                                        Text="{Binding Linea}"/>
-                                    <Label 
-                                        FontSize="Medium"
-                                        HorizontalOptions="StartAndExpand"
-                                        Text="{Binding Producto}"/>
-                                </StackLayout>
-                                <StackLayout 
-                                    Grid.Column="2">
-                                    <Label 
-                                       FontSize="Medium"
-                                       HorizontalOptions="StartAndExpand"
-                                       Text="{Binding Aberturas,StringFormat=' {0} mts2'}"/>
-                                </StackLayout>
-
-                            </Grid>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-
+            <Frame
+                BackgroundColor="White"
+                BorderColor="{StaticResource MainColor}"
+                CornerRadius="20">
+                <ListView
+                    IsRefreshing="{Binding IsRefreshing}"
+                    HasUnevenRows="True"
+                    IsPullToRefreshEnabled="True"
+                    RefreshCommand="{Binding RefreshCommand}"
+                    ItemsSource="{Binding ProdMensualOC}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid>
+                                   <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <StackLayout
+                                        Grid.Column="1"
+                                        Orientation="Horizontal">
+                                        <Label
+                                            FontSize="Medium"
+                                            HorizontalOptions="StartAndExpand"
+                                            Text="{Binding Linea}"/>
+                                    </StackLayout>
+                                    <StackLayout
+                                        Grid.Column="2">
+                                        <Label
+                                            FontSize="Medium"
+                                            HorizontalOptions="StartAndExpand"
+                                            Text="{Binding Aberturas,StringFormat=' {0} mts2'}"/>
+                                    </StackLayout>
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Frame>
         </StackLayout>
-        
     </ContentPage.Content>
 </ContentPage>

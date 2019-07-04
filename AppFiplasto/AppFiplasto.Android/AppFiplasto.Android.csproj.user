@@ -4,5 +4,6 @@
     <SelectedDevice>Motorola XT1032</SelectedDevice>
     <DefaultDevice>Android_Accelerated_x86_Oreo</DefaultDevice>
     <AndroidDesignerPreferredTheme>Theme.DeviceDefault.NoActionBar.Fullscreen</AndroidDesignerPreferredTheme>
+    <ProjectView>ProjectFiles</ProjectView>
   </PropertyGroup>
 </Project>

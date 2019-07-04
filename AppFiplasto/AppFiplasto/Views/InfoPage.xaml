@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppFiplasto.Views.InfoPage"
+             BackgroundColor="{StaticResource BackgroundColor}"
+             BindingContext="{Binding Main,Source={StaticResource Locator}}"
+             Title="Cargados">
+    <ContentPage.Content>
+        <StackLayout
+            BindingContext="{Binding InfoVM}"
+            Padding="8">
+          
+            <StackLayout HorizontalOptions = "CenterAndExpand"  >
+                <Image
+                    Margin="20"
+                    HeightRequest="100"
+                    Source="logo_nuevo">
+                </Image>
+                <Label
+                    FontAttributes = "Bold"
+                    FontSize="Medium"   
+                    HorizontalOptions="CenterAndExpand"
+                    Text="{Binding VersionActual,StringFormat='Version: {0}'}"
+                    TextColor = "{StaticResource FontColor}"/>
+                
+                <Label 
+                    FontAttributes = "Bold"
+                    FontSize="Medium"   
+                    HorizontalOptions="CenterAndExpand"
+                    Text = "{Binding Mensaje}"
+                    TextColor = "{Binding Color}">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command = "{Binding ClickCommand}"
+                                          CommandParameter = "http://www.sistemasfiplasto.com.ar/wsmadera/app_movil/DescargaApp.aspx" />
+                    </Label.GestureRecognizers>
+                </Label>
+              </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
